@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Example - Accessible Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .media {
+            margin: 20px 0;
+        }
+        .alternative-link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        .alternative-link:hover {
+            background-color: #e2e6ea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good Example - Accessible Media</h1>
+        
+        <div class="media">
+            <h2>Accessible Infographic</h2>
+            <img src="infographic.jpg" alt="Infographic showing the steps in a healthy diet plan">
+            <a href="#infographicDescription" class="alternative-link">View Infographic Description</a>
+            
+            <!-- Infographic Description -->
+            <div id="infographicDescription" style="display:none;">
+                <h3>Infographic Description</h3>
+                <p>This infographic illustrates a healthy diet plan, including the food groups and recommended daily servings: fruits, vegetables, proteins, and grains.</p>
+            </div>
+        </div>
+        
+        <div class="media">
+            <h2>Interactive Audio Player</h2>
+            <audio controls aria-label="A podcast episode on digital accessibility">
+                <source src="podcast.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <a href="#audioTranscript" class="alternative-link">View Audio Transcript</a>
+            
+            <!-- Audio Transcript -->
+            <div id="audioTranscript" style="display:none;">
+                <h3>Audio Transcript</h3>
+                <p>In this podcast episode, we discuss the latest trends in digital accessibility, including the importance of web accessibility and new tools available for developers.</p>
+            </div>
+        </div>
+        
+        <script>
+            // JavaScript to toggle visibility of descriptions
+            document.querySelectorAll('.alternative-link').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const descriptionSection = document.querySelector(this.getAttribute('href'));
+                    descriptionSection.style.display = descriptionSection.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
